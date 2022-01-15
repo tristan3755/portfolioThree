@@ -1,0 +1,125 @@
+body{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+*{
+  box-sizing: border-box;
+}
+#divThree{
+  width: 100%;
+  height: 100vh;
+  background-color: #121212;
+}
+section{
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+}
+.titre{
+  position: absolute;
+  z-index: 1;
+  font-family: 'Lora', serif;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10vh;
+  transition: ease-in-out 0.5s;
+}
+.titre :nth-child(1){
+letter-spacing: 40px;
+font-size: 8vmin;
+text-transform: uppercase;
+margin-bottom: 0;
+color: white;
+font-weight: lighter;
+}
+.titre :nth-child(2){
+letter-spacing: 30px;
+font-size: 4vmin;
+color: white;
+font-weight: lighter;
+}
+.cadre{
+  position: absolute;
+  width: 95%;
+  height: 95vh;
+  border: solid 5px white;
+  opacity: 0.8;
+}
+header{
+  position: absolute;
+  width: 90%;
+  height: 20vh;
+  bottom: 2vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+header p{
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Lora', serif;
+  letter-spacing: 2.5px;
+  font-size: 2vmin;
+  z-index: 1;
+}
+.portfolioGrid{
+  display: none;
+  position: absolute;
+  width: 75vw;
+  min-height: 90vh;
+  grid-template-columns:1fr 1fr;
+  grid-gap: 2px;
+  margin-top: 20px;
+  transform: translateY(100vh);
+  transition: ease-in-out 1.2s;
+}
+.technologie{
+  min-height: 70vh;
+  width: 100%;
+  position: absolute;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #121212;
+  z-index: 2;
+  /* transform: translateX(100vw); */
+}
+.technologie div{
+  position: relative;
+  max-width: 250px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 5rem;
+}
+.portfolioGrid div{
+height: 45vh;
+}
+.retour{
+  position: fixed;
+  top: 80vh;
+  right: -10rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  background: #121212;
+  box-shadow: inset 9px 9px 18px #0d0d0d,
+              inset -9px -9px 18px #171717;
+             color: white;
+             border: none;
+             transition: ease-in-out 0.5s;
+}
+.retour:hover{
+  border-radius: 50%;
+}
