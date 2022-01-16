@@ -14,6 +14,7 @@ let grid=document.querySelector('.portfolioGrid')
 let pageTechno=document.querySelector('.technologie')
 let header=document.querySelector('header')
 let retourPortfolio=document.querySelector('.retour')
+let retourTechno=document.querySelector('.retourTechno')
 let cadre=document.querySelector('.cadre')
 /*landingpage*/
 const scene=new THREE.Scene()
@@ -108,6 +109,12 @@ function transitionGrid(){
 function fadeAwayGrid(){
   grid.style.display='none'
 }
+function fadeAwayTechno(){
+  pageTechno.style.display='none'
+}
+function transitionTechno(){
+  pageTechno.style.transform='translateX(0)'
+}
 portfolio.addEventListener('click',()=>{
   gsap.to(camera.position,{duration:5,y:-500})
   titre.style.transform='translateY(-100vh)'
@@ -129,11 +136,23 @@ retourPortfolio.addEventListener("click",()=>{
   sect1.appendChild(cadre)
 })
 technologie.addEventListener('click',()=>{
-  gsap.to(camera.position,{duration:5,x:500})
+  gsap.to(camera.position,{duration:5,x:-500})
+  pageTechno.style.display="flex"
+  setTimeout(transitionTechno,1000)
   titre.style.transform='translateX(-100vw)'
   setTimeout(fadeAwayTitre,1000)
   sect1.removeChild(header)
   sect1.removeChild(cadre)
+  
+})
+retourTechno.addEventListener('click',()=>{
+  gsap.to(camera.position,{duration:5,x:0})
+  sect1.appendChild(titre)
+  setTimeout(returnTitre,1000)
+  pageTechno.style.transform='translateX(-100vw)';
+  setTimeout(fadeAwayTechno,1000)
+  sect1.appendChild(header)
+  sect1.appendChild(cadre)
 })
 //scroll 
 
@@ -231,5 +250,29 @@ new hoverEffect(
   }
 )
 }
+
+if(!document.querySelector('.image4 canvas')){
+  new hoverEffect(
+    {
+      parent:document.querySelector('.image4'),
+      intensity:0.8,
+      image1:'./community.jpg',
+      image2:'./community2.jpg',
+      displacementImage:'./ramen.jpg',
+      imagesRatio:0.5,
+    }
+  )
+  }
+
 }
 
+//resize camera
+
+window.onresize = function () {
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize( window.innerWidth, window.innerHeight );
+
+};
