@@ -256,9 +256,9 @@ if(!document.querySelector('.image4 canvas')){
     {
       parent:document.querySelector('.image4'),
       intensity:0.8,
-      image1:'./community.jpg',
-      image2:'./community2.jpg',
-      displacementImage:'./ramen.jpg',
+      image1:'./bloom.jpg',
+      image2:'./bloom2.jpg',
+      displacementImage:'./img10.jpg',
       imagesRatio:0.5,
     }
   )
