@@ -16,6 +16,9 @@ let header=document.querySelector('header')
 let retourPortfolio=document.querySelector('.retour')
 let retourTechno=document.querySelector('.retourTechno')
 let cadre=document.querySelector('.cadre')
+let contactButton=document.querySelector('header p:nth-child(3)')
+let contactSection=document.querySelector('.contact')
+let retourContact=document.querySelector('.retourContact')
 /*landingpage*/
 const scene=new THREE.Scene()
 
@@ -106,6 +109,9 @@ function returnTitre(){
 function transitionGrid(){
   grid.style.transform='translateY(0vh)';
 }
+function transitionContact(){
+  contactSection.style.transform='translateY(0vh)';
+}
 function fadeAwayGrid(){
   grid.style.display='none'
 }
@@ -114,6 +120,9 @@ function fadeAwayTechno(){
 }
 function transitionTechno(){
   pageTechno.style.transform='translateX(0)'
+}
+function fadeAwayContact(){
+  contactSection.style.display='none'
 }
 portfolio.addEventListener('click',()=>{
   gsap.to(camera.position,{duration:5,y:-500})
@@ -151,6 +160,23 @@ retourTechno.addEventListener('click',()=>{
   setTimeout(returnTitre,1000)
   pageTechno.style.transform='translateX(-100vw)';
   setTimeout(fadeAwayTechno,1000)
+  sect1.appendChild(header)
+  sect1.appendChild(cadre)
+})
+contactButton.addEventListener('click',()=>{
+  titre.style.transform='translateY(-100vh)'
+  setTimeout(fadeAwayTitre,1000)
+  contactSection.style.display="flex"
+  sect1.removeChild(header)
+  sect1.removeChild(cadre)
+  //setTimeout(transitionGrid,500)
+  setTimeout(transitionContact,500)
+})
+retourContact.addEventListener('click',()=>{
+  sect1.appendChild(titre)
+  setTimeout(returnTitre,1000)
+  contactSection.style.transform='translateY(-100vh)';
+  setTimeout(fadeAwayContact,1000)
   sect1.appendChild(header)
   sect1.appendChild(cadre)
 })

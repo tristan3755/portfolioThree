@@ -161,11 +161,14 @@ min-height: 45vh;
   position: absolute;
   width: 100%;
   min-height: 100vh;
+  max-height: 100%;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 5;
+  transform: translateY(-100vh);
+  transition: ease-in-out 0.5s;
 }
 form{
   width: 60vw;
@@ -189,14 +192,14 @@ form{
   height: 4rem;
   margin: 2rem;
   border-radius:5px;
-background-color: transparent;
-
-              color: white;
+background-color: white;
+opacity: 0.8;
+              color: #1e272e;
               font-family: 'Lora', serif;
               border: none;
 }
 .mid-width::-webkit-input-placeholder{
-  color: white;
+  color: #1e272e;
 }
 .long-width{
   width: 80%;
@@ -206,13 +209,41 @@ textarea{
 height: 25rem;
 resize: none;
 border: none;
-background-color: transparent;
-  color: white;
+background-color: white;
+opacity: 0.8;
+  color: #1e272e;
             font-family: 'Lora', serif;
             border-radius: 5px;
-            border: none;
+              
 }
 textarea::-webkit-input-placeholder{
-  color: white;
+  color: #1e272e;
   font-family: 'Lora', serif;
+}
+.buttonContact{
+border:none;
+width: 20%;
+height: 4rem;
+margin: 2rem;
+border-radius: 5px;
+opacity: 0.9;
+background-color: white;
+color: #1e2e1f;
+font-family: 'Lora', serif;
+}
+.retourContact{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border:none;
+  width: 5rem;
+height: 4rem;
+border-radius: 5px;
+opacity: 0.8;
+background-color: black;
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 }
