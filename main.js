@@ -36,14 +36,7 @@ renderer.setPixelRatio(container.devicePixelRatio)
 renderer.setSize(window.innerWidth,window.innerHeight)
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1;
-/*renderer.toneMapping = THREE.ReinhardToneMapping;*/
 renderer.outputEncoding = THREE.sRGBEncoding;
-/*renderer.autoClear = false;*/
-
-
-/*const lumiere=new THREE.PointLight(0xffffff,0.01)
-lumiere.position.set(550,0,550)
-scene.add(lumiere)*/
 
 /*construction sphere*/
 
@@ -180,36 +173,8 @@ retourContact.addEventListener('click',()=>{
   sect1.appendChild(header)
   sect1.appendChild(cadre)
 })
-//scroll 
-
-/*window.addEventListener('wheel',(e)=>{
-  console.log(e.deltaY)
-  if(e.deltaY< -1){
-    console.log(e.deltaY + 'je monte')
-    gsap.to(camera.position,{duration:5,y:0})
-    sect1.appendChild(titre)
-    setTimeout(returnTitre,1000)
-    grid.style.transform='translateY(100vh)';
-    setTimeout(fadeAwayGrid,1000)
-    sect1.appendChild(header)
-    sect1.appendChild(cadre)
-  }
-  if(e.deltaY> 1){
-    console.log(e.deltaY + 'je descends')
-    gsap.to(camera.position,{duration:5,y:-500})
-    titre.style.transform='translateY(-100vh)'
-    setTimeout(fadeAwayTitre,1000)
-    grid.style.display='grid'
-    sect1.removeChild(header)
-    sect1.removeChild(cadre)
-    setTimeout(hover,500)
-    setTimeout(transitionGrid,500)
-  }
- 
-})*/
 
 })
-
 
 function animate(){
 
