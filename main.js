@@ -5,6 +5,8 @@ import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader'
 import {FlakesTexture} from 'three/examples/jsm/textures/FlakesTexture'
 import gsap from 'gsap'
 import hoverEffect from 'hover-effect'
+
+
 /*landingpage*/
 let portfolio=document.querySelector('header p:nth-child(1)')
 let technologie=document.querySelector('header p:nth-child(2)')
