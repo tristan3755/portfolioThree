@@ -5,4 +5,5 @@ module.exports = {
        sourcemap: true,
             },     
     publicDir: 'public' ,
+    publicPath: "/public/",
  } 
