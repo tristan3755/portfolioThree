@@ -68,7 +68,7 @@ new RGBELoader().setPath('./').load('custom4.hdr',(hdrmap)=>{
   let sphereMaterial=new THREE.MeshPhysicalMaterial(sphereMaterials)
   let sphere= new THREE.Mesh(sphereConstruct,sphereMaterial)
   scene.add(sphere)
-
+  if(window.matchMedia("(min-width:900px)").matches){
   let orbit
 
 document.addEventListener('mousemove',(e)=>{
@@ -83,9 +83,7 @@ document.addEventListener('mousemove',(e)=>{
     orbit.rotateX( e.movementY * scale ); 
     orbit.rotation.z = 0;
   }
-
 })
-
 orbit = new THREE.Object3D();
 orbit.rotation.order = "YXZ"; 
 orbit.position.copy( sphere.position );
@@ -94,6 +92,11 @@ scene.add(orbit);
 let cameraDistance = 70;
 camera.position.z = cameraDistance;
 orbit.add( camera );
+}else{
+  let cameraDistance = 110;
+  camera.position.z = cameraDistance;
+}
+
 
 function fadeAwayTitre(){
   sect1.removeChild(titre)
@@ -176,15 +179,30 @@ retourContact.addEventListener('click',()=>{
   sect1.appendChild(cadre)
 })
 
-})
-
 function animate(){
 
   renderer.render(scene,camera)
-  requestAnimationFrame(animate)
-  
+  requestAnimationFrame(animate) 
+  if(window.matchMedia("(max-width:900px)").matches){
+    camera.rotation.z+=0.01
+  }
 }
-  animate()
+
+animate()
+
+window.onresize = function () {
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize( window.innerWidth, window.innerHeight );
+
+};
+
+})
+
+
+  
 
 
 /*hover effect*/
@@ -261,11 +279,4 @@ if(!document.querySelector('.image4 canvas')){
 
 //resize camera
 
-window.onresize = function () {
 
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize( window.innerWidth, window.innerHeight );
-
-};
