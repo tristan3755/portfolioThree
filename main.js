@@ -201,10 +201,6 @@ window.onresize = function () {
 
 })
 
-
-  
-
-
 /*hover effect*/
 function hover(){
   if(!document.querySelector('.image canvas')){
@@ -279,4 +275,12 @@ if(!document.querySelector('.image4 canvas')){
 
 //resize camera
 
+//retourScroll
 
+let retourTop=document.querySelectorAll('.retour-top')
+
+retourTop.forEach(i=>{
+  i.addEventListener('click',()=>{
+    window.scrollTo(0,0)
+  })
+})
