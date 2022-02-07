@@ -271,6 +271,19 @@ if(!document.querySelector('.image4 canvas')){
   )
   }
 
+  if(!document.querySelector('.image5 canvas')){
+    new hoverEffect(
+      {
+        parent:document.querySelector('.image5'),
+        intensity:0.8,
+        image1:'./zelda1.jpg',
+        image2:'./zelda2.jpg',
+        displacementImage:'./stripe1.png',
+        imagesRatio:0.5,
+      }
+    )
+    }
+
 }
 
 //resize camera
