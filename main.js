@@ -284,6 +284,19 @@ if(!document.querySelector('.image4 canvas')){
     )
     }
 
+    
+  if(!document.querySelector('.image6 canvas')){
+    new hoverEffect(
+      {
+        parent:document.querySelector('.image6'),
+        intensity:0.8,
+        image1:'./cyberpunk1.jpg',
+        image2:'./cyberpunk2.jpg',
+        displacementImage:'./ice2.jpg',
+        imagesRatio:0.5,
+      }
+    )
+    }
 }
 
 //resize camera
