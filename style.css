@@ -162,13 +162,14 @@ position: relative;
             align-items: center;
             justify-content: center;
             border: solid 2px #e74d3c80;
+            transition: ease-in-out 0.5s;
          
             
 }
 .retourTechno:hover{
   border-radius: 20%;
   cursor: pointer;
-  transition: ease-in-out 0.5s;
+
 }
 .retourTechno p{
   color: white;
