@@ -5,6 +5,13 @@ import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader'
 import {FlakesTexture} from 'three/examples/jsm/textures/FlakesTexture'
 import gsap from 'gsap'
 import hoverEffect from 'hover-effect'
+import Stats from 'three/examples/jsm/libs/stats.module.js';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import {FXAAShader} from 'three/examples/jsm/shaders/FXAAShader.js'
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
 
 
 /*landingpage*/
@@ -37,8 +44,53 @@ const renderer=new THREE.WebGL1Renderer({
 renderer.setPixelRatio(container.devicePixelRatio)
 renderer.setSize(window.innerWidth,window.innerHeight)
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1;
-renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMappingExposure = 1;
+  renderer.toneMapping = THREE.ReinhardToneMapping;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.autoClear = false;
+  
+
+  //postprocessing
+let stats
+let composer
+let fxaaPass
+
+
+stats = new Stats();
+container.appendChild( stats.dom );
+
+const params = {
+	exposure:0.3,
+	bloomStrength: 0.5,
+	bloomThreshold: 0,
+	bloomRadius: 0.3,
+};
+
+const bloomPass = new UnrealBloomPass( new THREE.Vector2( container.clientWidth, container.clientHeight ), 1.5, 0.4, 0.85 );
+bloomPass.threshold = params.bloomThreshold;
+bloomPass.strength = params.bloomStrength;
+bloomPass.radius = params.bloomRadius;
+
+
+
+const renderScene = new RenderPass( scene, camera );
+fxaaPass = new ShaderPass( FXAAShader );
+
+const copyPass = new ShaderPass( CopyShader );
+
+
+composer = new EffectComposer( renderer );
+composer.addPass( renderScene );
+composer.addPass( bloomPass );
+composer.addPass(fxaaPass)
+composer.addPass( copyPass );
+
+const pixelRatio = renderer.getPixelRatio();
+
+				fxaaPass.material.uniforms[ 'resolution' ].value.x = 1 / ( container.offsetWidth * pixelRatio );
+				fxaaPass.material.uniforms[ 'resolution' ].value.y = 1 / ( container.offsetHeight * pixelRatio );
+
+ //postprocessing
 
 /*construction sphere*/
 
@@ -57,7 +109,6 @@ new RGBELoader().setPath('./').load('custom4.hdr',(hdrmap)=>{
     clearcoatRoughness:0.4,
     metalness:1,
     roughness:0.4,
-    /*color:0x1e272e,*/
     normalMap:textures,
     normalScale:new THREE.Vector2(0.85,0.85),
     envMap:envmap.texture,
@@ -96,8 +147,6 @@ orbit.add( camera );
   let cameraDistance = 110;
   camera.position.z = cameraDistance;
 }
-
-
 function fadeAwayTitre(){
   sect1.removeChild(titre)
 }
@@ -182,6 +231,8 @@ retourContact.addEventListener('click',()=>{
 function animate(){
 
   renderer.render(scene,camera)
+  stats.update();
+  composer.render();
   requestAnimationFrame(animate) 
   if(window.matchMedia("(max-width:900px)").matches){
     camera.rotation.z+=0.01
@@ -194,16 +245,17 @@ window.onresize = function () {
 
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-
+  const pixelRatio = renderer.getPixelRatio();
   renderer.setSize( window.innerWidth, window.innerHeight );
-
+  fxaaPass.material.uniforms[ 'resolution' ].value.x = 1 / ( container.offsetWidth * pixelRatio );
+  fxaaPass.material.uniforms[ 'resolution' ].value.y = 1 / ( container.offsetHeight * pixelRatio );
 };
 
 })
 
 /*hover effect*/
 function hover(){
-  if(!document.querySelector('.image canvas')){
+  
 new hoverEffect(
   {
     parent:document.querySelector('.image'),
@@ -214,14 +266,11 @@ new hoverEffect(
     imagesRatio:0.55,
   },
 )
-
-}
-if(!document.querySelector('.image1 canvas')){
 new hoverEffect(
   
   {
     parent:document.querySelector('.image1'),
-    intensity:0.8,
+    intensity:0.1,
     image1:'./meteo.jpg',
     image2:'./meteo2.jpg',
     displacementImage:'./fluid.jpg',
@@ -229,76 +278,57 @@ new hoverEffect(
   }
 )
 
-}
-
-if(!document.querySelector('.image2 canvas')){
 new hoverEffect(
   {
     parent:document.querySelector('.image2'),
-    intensity:0.8,
+    intensity:0.1,
     image1:'./communart.jpg',
     image2:'./communart2.jpg',
     displacementImage:'./strip.png',
     imagesRatio:0.5,
   }
 )
-
-}
-
-if(!document.querySelector('.image3 canvas')){
 new hoverEffect(
   {
     parent:document.querySelector('.image3'),
-    intensity:0.8,
+    intensity:0.1,
     image1:'./community.jpg',
     image2:'./community2.jpg',
     displacementImage:'./ramen.jpg',
     imagesRatio:0.5,
   }
 )
-}
-
-if(!document.querySelector('.image4 canvas')){
   new hoverEffect(
     {
       parent:document.querySelector('.image4'),
-      intensity:0.8,
+      intensity:0.1,
       image1:'./bloom.jpg',
       image2:'./bloom2.jpg',
       displacementImage:'./img10.jpg',
       imagesRatio:0.5,
     }
   )
-  }
-
-  if(!document.querySelector('.image5 canvas')){
     new hoverEffect(
       {
         parent:document.querySelector('.image5'),
-        intensity:0.8,
+        intensity:0.1,
         image1:'./zelda1.jpg',
         image2:'./zelda2.jpg',
         displacementImage:'./stripe1.png',
         imagesRatio:0.5,
       }
-    )
-    }
-
-    
-  if(!document.querySelector('.image6 canvas')){
-    new hoverEffect(
-      {
-        parent:document.querySelector('.image6'),
-        intensity:0.8,
-        image1:'./cyberpunk1.jpg',
-        image2:'./cyberpunk2.jpg',
-        displacementImage:'./ice2.jpg',
-        imagesRatio:0.5,
-      }
-    )
-    }
+    )   
+      new hoverEffect(
+        {
+          parent:document.querySelector('.image6'),
+          intensity:0.1,
+          image1:'./cyberpunk1.jpg',
+          image2:'./cyberpunk2.jpg',
+          displacementImage:'./ice2.jpg',
+          imagesRatio:0.5,
+        }
+      )
 }
-
 //resize camera
 
 //retourScroll
