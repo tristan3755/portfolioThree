@@ -315,8 +315,11 @@ textarea{
 }
   .portfolioGrid{
     grid-template-columns:1fr;
-    width: 100%;
+    width: 90%;
     grid-gap: 10px;
+  }
+  .portfolioGrid a{
+    width: 90vw;
   }
   .retour{
     right: 0;
