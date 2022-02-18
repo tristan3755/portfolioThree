@@ -119,7 +119,7 @@ header p{
   margin: 5rem;
 }
 .portfolioGrid a{
-min-height: 45vh;
+min-height: 50vh;
 width: 37.5vw;
 position: relative;
 }
@@ -129,6 +129,82 @@ position: relative;
 .portfolioGrid a:hover{
   cursor: pointer;
 }
+.legende-portfolio{
+  position: relative;
+}
+.legende-portfolio p{
+  color: rgba(255, 255, 255, 0.877);
+ font-size: 1.2rem;
+}
+.legende-portfolio p:nth-child(1){
+  position: absolute;
+  bottom: 0;
+  font-size: 5rem;
+  margin: 0;
+  left: 3rem;
+}
+.legende-portfolio p:nth-child(2){
+ transform: rotate(-90deg);
+ position: absolute;
+ font-size: 3rem;
+ margin: 0;
+ right: -3rem;
+bottom: 5rem;
+letter-spacing: 0.5rem;
+}
+.legende-portfolio div:nth-child(3){
+  position: absolute;
+  margin: 0;
+  left: 0rem;
+ top: 1rem;
+ width: 80px;
+ height: 80px;
+ }
+ .legende-portfolio div:nth-child(4){
+  position: absolute;
+  margin: 0;
+  left: 6rem;
+ top: 1rem;
+ width: 80px;
+ height: 80px;
+ }
+.even p{
+  color: rgba(255, 255, 255, 0.877);
+ font-size: 1.2rem;
+}
+.even p:nth-child(1){
+ position: absolute;
+ bottom: 0;
+ font-size: 5rem;
+ margin: 0;
+ right: 3rem;
+}
+.even p:nth-child(2){
+  transform: rotate(-90deg);
+  position: absolute;
+  font-size: 3rem;
+  margin: 0;
+  left: -3rem;
+ bottom: 5rem;
+ letter-spacing: 0.5rem;
+ text-align: center;
+}
+.even div:nth-child(3){
+  position: absolute;
+  margin: 0;
+  right: 0rem;
+ top: 1rem;
+ width: 80px;
+ height: 80px;
+ }
+ .even div:nth-child(4){
+  position: absolute;
+  margin: 0;
+  right: 6rem;
+ top: 1rem;
+ width: 80px;
+ height: 80px;
+ }
 .retour{
   position: absolute;
   top: 1rem;
