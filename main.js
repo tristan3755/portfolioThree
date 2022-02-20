@@ -60,10 +60,10 @@ stats = new Stats();
 container.appendChild( stats.dom );
 
 const params = {
-	exposure:0.3,
-	bloomStrength: 0.5,
+	exposure:0.5,
+	bloomStrength: 0.3,
 	bloomThreshold: 0,
-	bloomRadius: 0.3,
+	bloomRadius: 0.5,
 };
 
 const bloomPass = new UnrealBloomPass( new THREE.Vector2( container.clientWidth, container.clientHeight ), 1.5, 0.4, 0.85 );
@@ -216,7 +216,6 @@ contactButton.addEventListener('click',()=>{
   contactSection.style.display="flex"
   sect1.removeChild(header)
   sect1.removeChild(cadre)
-  //setTimeout(transitionGrid,500)
   setTimeout(transitionContact,500)
 })
 retourContact.addEventListener('click',()=>{
