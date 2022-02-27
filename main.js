@@ -254,7 +254,7 @@ window.onresize = function () {
 
 /*hover effect*/
 function hover(){
-  
+ if(document.querySelector('.image')){ 
 new hoverEffect(
   {
     parent:document.querySelector('.image'),
@@ -265,68 +265,80 @@ new hoverEffect(
     imagesRatio:0.55,
   },
 )
+}
+if(document.querySelector('.image1')){ 
 new hoverEffect(
-  
+
   {
     parent:document.querySelector('.image1'),
     intensity:0.1,
     image1:'./meteo.jpg',
     image2:'./meteo2.jpg',
-    displacementImage:'./fluid.jpg',
+    displacementImage:'./heightMap.png',
     imagesRatio:0.5,
   }
 )
-
+}
+if(document.querySelector('.image2')){ 
 new hoverEffect(
   {
     parent:document.querySelector('.image2'),
     intensity:0.1,
     image1:'./communart.jpg',
     image2:'./communart2.jpg',
-    displacementImage:'./strip.png',
+    displacementImage:'./heightMap.png',
     imagesRatio:0.5,
   }
 )
+}
+if(document.querySelector('.image3')){ 
 new hoverEffect(
   {
     parent:document.querySelector('.image3'),
     intensity:0.1,
     image1:'./community.jpg',
     image2:'./community2.jpg',
-    displacementImage:'./ramen.jpg',
+    displacementImage:'./heightMap.png',
     imagesRatio:0.5,
   }
 )
+}
+if(document.querySelector('.image4')){ 
   new hoverEffect(
     {
       parent:document.querySelector('.image4'),
       intensity:0.1,
       image1:'./bloom.jpg',
       image2:'./bloom2.jpg',
-      displacementImage:'./img10.jpg',
+      displacementImage:'./heightMap.png',
       imagesRatio:0.5,
     }
   )
+}
+if(document.querySelector('.image5')){ 
     new hoverEffect(
       {
         parent:document.querySelector('.image5'),
         intensity:0.1,
         image1:'./zelda1.jpg',
         image2:'./zelda2.jpg',
-        displacementImage:'./stripe1.png',
+        displacementImage:'./heightMap.png',
         imagesRatio:0.5,
       }
     )   
+}
+if(document.querySelector('.image6')){ 
       new hoverEffect(
         {
           parent:document.querySelector('.image6'),
           intensity:0.1,
           image1:'./cyberpunk1.jpg',
           image2:'./cyberpunk2.jpg',
-          displacementImage:'./ice2.jpg',
+          displacementImage:'./heightMap.png',
           imagesRatio:0.5,
         }
       )
+}
 }
 //resize camera
 

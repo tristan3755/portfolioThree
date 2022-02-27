@@ -160,18 +160,68 @@ header p:nth-child(1):hover{
       }
 
       /*span*/
-.portfolioGrid{
-  display: none;
-  position: absolute;
-  width: 75vw;
-  min-height: 90vh;
-  grid-template-columns:1fr 1fr;
-  grid-gap: 2px;
-  margin-top: 2px;
-  transform: translateY(100vh);
-  transition: ease-in-out 1.2s;
-  max-height: 100%;
-}
+      /*grid*/
+      .portfolioGrid{
+        margin-top: 2rem;
+        display: none;
+        position: absolute;
+        width: 85vw;
+        min-height: 90vh;
+        grid-template-columns:1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        transform: translateY(100vh);
+        transition: ease-in-out 1.2s;
+        max-height: 100%;
+        grid-template-areas:"metis metis weather"
+                            "metis metis weather"
+                            "communart community community"
+                            "communart community community"
+                            "cyberpunk cyberpunk cyberpunk"
+                            "cyberpunk cyberpunk cyberpunk"
+                            "zelda bloom bloom";
+      }
+
+      .image{
+        grid-area: metis;
+      }
+      .image1{
+        grid-area: weather;
+      }
+      .image2{
+        grid-area: communart;
+      }
+      .image3{
+        grid-area: community;
+      }
+      .image4{
+        grid-area: bloom;
+      }
+      .image5{
+        grid-area: zelda;
+      }
+      .image6{
+        grid-area: cyberpunk;
+      }
+      .portfolioGrid a{
+        position: relative;
+    
+      }
+      .portfolioGrid a canvas{
+        position: absolute;
+        border: 1px solid white;
+      }
+      .portfolioGrid a:hover{
+        cursor: pointer;
+      }
+      .portfolioGrid a{
+        min-height: 50vh;
+        position: relative;
+        }
+        .portfolioGrid .image6{
+          min-height: 70vh;
+        }
+
+  /*grid*/
 .technologie{
   min-height: 70vh;
   width: 100%;
@@ -193,56 +243,6 @@ header p:nth-child(1):hover{
   height: 6rem;
   margin: 5rem;
 }
-
-.portfolioGrid a{
-min-height: 50vh;
-width: 37.5vw;
-position: relative;
-}
-.portfolioGrid a canvas{
-  position: absolute;
-}
-.portfolioGrid a:hover{
-  cursor: pointer;
-}
-
-.even p{
-  color: rgba(255, 255, 255, 0.877);
- font-size: 1.2rem;
-}
-.even p:nth-child(1){
- position: absolute;
- bottom: 0;
- font-size: 5rem;
- margin: 0;
- right: 3rem;
-}
-.even p:nth-child(2){
-  transform: rotate(-90deg);
-  position: absolute;
-  font-size: 3rem;
-  margin: 0;
-  left: -3rem;
- bottom: 5rem;
- letter-spacing: 0.5rem;
- text-align: center;
-}
-.even div:nth-child(3){
-  position: absolute;
-  margin: 0;
-  right: 0rem;
- top: 1rem;
- width: 80px;
- height: 80px;
- }
- .even div:nth-child(4){
-  position: absolute;
-  margin: 0;
-  right: 6rem;
- top: 1rem;
- width: 80px;
- height: 80px;
- }
 .retour{
   position: absolute;
   top: 1rem;
@@ -257,7 +257,7 @@ position: relative;
              border: none;
              transition: ease-in-out 0.5s;
              font-family: 'Lora', serif;
-             border: solid 2px #e74d3c80;
+             border: solid 2px white;
 }
 .retour:hover{
   border-radius: 50%;
@@ -407,7 +407,7 @@ border: 1px solid white;
   justify-content: space-evenly;
   margin-bottom: 3rem;
 }
-@media(max-width:1000px){
+@media(max-width:1024px){
   .technologie div {
     margin: 3rem;
   }
@@ -427,14 +427,15 @@ border: 1px solid white;
 textarea{
   min-width: 250px;
 }
-  .portfolioGrid{
-    grid-template-columns:1fr;
-    width: 90%;
-    grid-gap: 10px;
-  }
-  .portfolioGrid a{
-    width: 90vw;
-  }
+.portfolioGrid{
+  width: 95vw;
+}
+.portfolioGrid a{
+  min-height: 30vh;
+} 
+.portfolioGrid .image6{
+  min-height: 30vh;
+} 
   .retour{
     right: 0;
   }
@@ -445,7 +446,16 @@ textarea{
   }
   .portfolioGrid{
     grid-template-columns:1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:"metis"
+                        "weather"
+                        "communart"
+                        "community"
+                        "cyberpunk"
+                        "zelda"
+                        "bloom";
   }
+
   .retour{
     right: 0.5rem;
   }
