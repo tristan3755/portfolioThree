@@ -28,6 +28,7 @@ let cadre=document.querySelector('.cadre')
 let contactButton=document.querySelector('header p:nth-child(3)')
 let contactSection=document.querySelector('.contact')
 let retourContact=document.querySelector('.retourContact')
+
 /*landingpage*/
 const scene=new THREE.Scene()
 
@@ -178,8 +179,11 @@ portfolio.addEventListener('click',()=>{
   grid.style.display='grid'
   sect1.removeChild(header)
   sect1.removeChild(cadre)
-  setTimeout(hover,500)
+  if(booleanEffect==false){
+    setTimeout(hover,500)
+  }
   setTimeout(transitionGrid,500)
+  console.log( booleanEffect)
 })
 
 retourPortfolio.addEventListener("click",()=>{
@@ -253,8 +257,10 @@ window.onresize = function () {
 })
 
 /*hover effect*/
+
+let booleanEffect=false
 function hover(){
- if(document.querySelector('.image')){ 
+  booleanEffect=true
 new hoverEffect(
   {
     parent:document.querySelector('.image'),
@@ -265,8 +271,8 @@ new hoverEffect(
     imagesRatio:0.55,
   },
 )
-}
-if(document.querySelector('.image1')){ 
+
+
 new hoverEffect(
 
   {
@@ -278,8 +284,8 @@ new hoverEffect(
     imagesRatio:0.5,
   }
 )
-}
-if(document.querySelector('.image2')){ 
+
+
 new hoverEffect(
   {
     parent:document.querySelector('.image2'),
@@ -290,8 +296,7 @@ new hoverEffect(
     imagesRatio:0.5,
   }
 )
-}
-if(document.querySelector('.image3')){ 
+
 new hoverEffect(
   {
     parent:document.querySelector('.image3'),
@@ -302,8 +307,8 @@ new hoverEffect(
     imagesRatio:0.5,
   }
 )
-}
-if(document.querySelector('.image4')){ 
+
+
   new hoverEffect(
     {
       parent:document.querySelector('.image4'),
@@ -314,8 +319,7 @@ if(document.querySelector('.image4')){
       imagesRatio:0.5,
     }
   )
-}
-if(document.querySelector('.image5')){ 
+
     new hoverEffect(
       {
         parent:document.querySelector('.image5'),
@@ -326,8 +330,7 @@ if(document.querySelector('.image5')){
         imagesRatio:0.5,
       }
     )   
-}
-if(document.querySelector('.image6')){ 
+
       new hoverEffect(
         {
           parent:document.querySelector('.image6'),
@@ -338,7 +341,7 @@ if(document.querySelector('.image6')){
           imagesRatio:0.5,
         }
       )
-}
+
 }
 //resize camera
 
