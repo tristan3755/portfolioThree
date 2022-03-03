@@ -12,6 +12,9 @@ body::-webkit-scrollbar{
 *{
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+}
 #divThree{
   width: 100%;
   min-height: 100vh;
@@ -275,7 +278,7 @@ header p:nth-child(1):hover{
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: solid 2px #e74d3c80;
+            border: solid 2px white;
             transition: ease-in-out 0.5s;
          
             
@@ -305,80 +308,80 @@ header p:nth-child(1):hover{
   transform: translateY(-100vh);
   transition: ease-in-out 0.5s;
 }
-form{
-  width: 60vw;
-  min-height: 80vh;
+
+.contact-cadre{
+width: 60vw;
+min-height: 60vh;
+background-color: white;
+position: relative;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+opacity: 0.9;
+border-radius: 5px;
+}
+.right-contact{
+  flex: 0.6;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-            
+  justify-content: center;
+  border-radius: 5px;
 }
-.name{
-  width: 100%;
+.text-right{
+  font-family: 'Lora', serif;
+  letter-spacing: 4px;
+  font-size: 2rem;
+}
+.text-right p:nth-child(2){
+ color: rgba(0, 0, 0, 0.76);
+}
+.text-right p:nth-child(3){
+  color: #2980b9;
+  font-size: 1.5rem;
+ }
+.fa-location-dot{
+  color: #2980b9;
+  font-size: 3rem;
+}
+.left-contact{
+  flex: 0.4;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  border-radius: 5px;
 }
-.mid-width{
-  width: 40%;
-  height: 4rem;
-  margin: 2rem;
-  border-radius:5px;
-background-color: white;
-opacity: 0.8;
-              color: #1e272e;
-              font-family: 'Lora', serif;
-              border: none;
-}
-.mid-width::-webkit-input-placeholder{
-  color: #1e272e;
-}
-.long-width{
-  width: 80%;
-}
-textarea{
-  width: 85%;
-height: 25rem;
-resize: none;
-border:none;
-background-color: white;
-opacity: 0.8;
-  color: #1e272e;
-            font-family: 'Lora', serif;
-            border-radius: 5px;
-              
-}
-textarea::-webkit-input-placeholder{
-  color: #1e272e;
-  font-family: 'Lora', serif;
-}
-.buttonContact{
-border:none;
-width: 20%;
-height: 4rem;
-margin: 2rem;
+.button-contact-form{
+height: 80px;
+width: 70%;
+background-color: #2980b9;
+margin: 1rem;
 border-radius: 5px;
-opacity: 0.9;
-background-color:transparent;
-color: white;
-font-family: 'Lora', serif;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 align-items: center;
 justify-content: center;
-border: 1px solid white;
 }
-.buttonContact:hover{
-cursor: pointer;
+.contact-me{
+  color: white;
+  font-family: 'Lora', serif;
+  letter-spacing: 1px;
+}
+.mail{
+  background-color: rgba(0, 0, 0, 0.76);
+}
+.fa-paper-plane,.fa-phone-volume{
+  color: white;
+  font-size: 2rem;
+  margin-right: 1.5rem;
 }
 .retourContact{
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 5rem;
+position: absolute;
+top: 1rem;
+right: 1rem;
+width: 5rem;
 height: 4rem;
 border-radius: 5px;
 opacity: 0.8;
@@ -393,38 +396,21 @@ border: 1px solid white;
 .retourContact:hover{
   cursor: pointer;
 }
-.fa-linkedin,.fa-mobile{
-  font-size: 4rem;
-  text-decoration: none;
-  color: white;
-}
-.link-mobile{
-  width: 400px;
-  max-width: 90%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 3rem;
+
+@media (max-width:1440px) {
+  .retour{
+    right: 0;
+  } 
 }
 @media(max-width:1024px){
   .technologie div {
     margin: 3rem;
-  }
-  form{
-    width: 90%;
-  }
-  .buttonContact{
-    min-width: 250px;
   }
   .name{
     flex-direction: column;
   }
 .mid-width{
   width: 90%;
-  min-width: 250px;
-}
-textarea{
   min-width: 250px;
 }
 .portfolioGrid{
@@ -476,9 +462,6 @@ textarea{
 @media(max-width:450px){
   .titre :nth-child(2){
     letter-spacing: 10px;
-  }
-  form{
-    margin-top: 5rem;
   }
   header{
     margin-bottom: 7rem;

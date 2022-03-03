@@ -244,15 +244,15 @@ function animate(){
 
 animate()
 
-window.onresize = function () {
-
+window.addEventListener('resize',()=>{
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   const pixelRatio = renderer.getPixelRatio();
   renderer.setSize( window.innerWidth, window.innerHeight );
   fxaaPass.material.uniforms[ 'resolution' ].value.x = 1 / ( container.offsetWidth * pixelRatio );
   fxaaPass.material.uniforms[ 'resolution' ].value.y = 1 / ( container.offsetHeight * pixelRatio );
-};
+})
+
 
 })
 
@@ -270,8 +270,8 @@ new hoverEffect(
     displacementImage:'./heightMap.png',
     imagesRatio:0.55,
   },
-)
 
+)
 
 new hoverEffect(
 
@@ -284,8 +284,6 @@ new hoverEffect(
     imagesRatio:0.5,
   }
 )
-
-
 new hoverEffect(
   {
     parent:document.querySelector('.image2'),
@@ -294,9 +292,9 @@ new hoverEffect(
     image2:'./communart2.jpg',
     displacementImage:'./heightMap.png',
     imagesRatio:0.5,
-  }
-)
 
+  },
+)
 new hoverEffect(
   {
     parent:document.querySelector('.image3'),
@@ -307,8 +305,6 @@ new hoverEffect(
     imagesRatio:0.5,
   }
 )
-
-
   new hoverEffect(
     {
       parent:document.querySelector('.image4'),
@@ -319,7 +315,6 @@ new hoverEffect(
       imagesRatio:0.5,
     }
   )
-
     new hoverEffect(
       {
         parent:document.querySelector('.image5'),
