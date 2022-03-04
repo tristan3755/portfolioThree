@@ -456,7 +456,6 @@ border: 1px solid white;
   }
   .portfolioGrid{
     grid-template-columns:1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:"metis"
                         "weather"
                         "communart"
