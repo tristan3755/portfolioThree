@@ -311,6 +311,7 @@ header p:nth-child(1):hover{
 
 .contact-cadre{
 width: 60vw;
+min-width: 900px;
 min-height: 60vh;
 background-color: white;
 position: relative;
@@ -363,6 +364,10 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
+transition: ease-in-out 0.5s;
+}
+.button-contact-form:hover{
+ transform:scale(1.1);
 }
 .contact-me{
   color: white;
@@ -401,6 +406,15 @@ border: 1px solid white;
   .retour{
     right: 0;
   } 
+  .technologie div{
+    margin: 3rem;
+  }
+}
+@media (max-width:1280px) {
+ 
+  .technologie div{
+    margin: 2rem;
+  }
 }
 @media(max-width:1024px){
   .technologie div {
@@ -424,6 +438,17 @@ border: 1px solid white;
 } 
   .retour{
     right: 0;
+  }
+}
+@media (max-width:900px) {
+  .contact-cadre{
+    min-width: unset;
+    flex-direction: column;
+    width: 80%;
+    min-height: 75vh;
+  }
+  .text-right{
+    text-align: center;
   }
 }
 @media(max-width:600px){
@@ -457,6 +482,15 @@ border: 1px solid white;
 @media (max-width:481px) {
   .technologie div{
     margin: 4rem;
+  }
+  .text-right{
+    font-size: 1.2rem;
+  }
+  .text-right p:nth-child(3){
+    font-size: 1rem;
+  }
+  .contact-cadre{
+    min-height: 60vh;
   }
 }
 @media(max-width:450px){
