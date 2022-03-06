@@ -60,12 +60,28 @@ let fxaaPass
 
 stats = new Stats();
 container.appendChild( stats.dom );
+let exposureRatio=0.5
+let bloomStrengthRatio=0.3
+let bloomThresholdRatio=0
+let bloomRadiusRatio=0.5
+
+if(window.matchMedia('(max-width:500px)').matches){
+   exposureRatio=0.3
+   bloomStrengthRatio=0.1
+   bloomThresholdRatio=0
+   bloomRadiusRatio=0.1
+}else{
+  exposureRatio=0.5
+   bloomStrengthRatio=0.3
+   bloomThresholdRatio=0
+   bloomRadiusRatio=0.5
+}
 
 const params = {
-	exposure:0.5,
-	bloomStrength: 0.3,
-	bloomThreshold: 0,
-	bloomRadius: 0.5,
+	exposure:exposureRatio,
+	bloomStrength: bloomStrengthRatio,
+	bloomThreshold: bloomThresholdRatio,
+	bloomRadius: bloomRadiusRatio,
 };
 
 const bloomPass = new UnrealBloomPass( new THREE.Vector2( container.clientWidth, container.clientHeight ), 1.5, 0.4, 0.85 );
@@ -150,7 +166,7 @@ orbit.add( camera );
   camera.position.z = cameraDistanceMobile;  
 orbit = new THREE.Object3D();
 orbit.rotation.order = "YXZ"; 
-orbit.rotation.x = 1;
+orbit.rotation.x = 14.5;
 orbit.position.copy( sphere.position );
 scene.add(orbit);
 orbit.add( camera );

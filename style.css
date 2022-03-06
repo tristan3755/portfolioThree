@@ -488,25 +488,25 @@ border: 1px solid white;
     border: white 1px solid;
   }
   .image{
-    background-image: url('./metis.jpg');
+    background-image: url('../metis.jpg');
   }
   .image1{
-    background-image: url('./meteo.jpg');
+    background-image: url('../meteo.jpg');
   }
   .image2{
-    background-image: url('./communart.jpg');
+    background-image: url('../communart.jpg');
   }
   .image3{
-    background-image: url('./community.jpg');
+    background-image: url('../community.jpg');
   }
   .image4{
-    background-image: url('./bloom.jpg');
+    background-image: url('../bloom.jpg');
   }
   .image5{
-    background-image: url('./zelda1.jpg');
+    background-image: url('../zelda1.jpg');
   }
   .image6{
-    background-image: url('./cyberpunk1.jpg');
+    background-image: url('../cyberpunk1.jpg');
   }
   .technologie div{
     margin: 4rem;
