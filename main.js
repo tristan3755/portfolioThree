@@ -15,6 +15,7 @@ import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
 
 
 /*landingpage*/
+
 let portfolio=document.querySelector('header p:nth-child(1)')
 let technologie=document.querySelector('header p:nth-child(2)')
 let titre=document.querySelector('.titre')
@@ -120,9 +121,9 @@ new RGBELoader().setPath('./').load('custom4.hdr',(hdrmap)=>{
   let sphereMaterial=new THREE.MeshPhysicalMaterial(sphereMaterials)
   let sphere= new THREE.Mesh(sphereConstruct,sphereMaterial)
   scene.add(sphere)
-  if(window.matchMedia("(min-width:900px)").matches){
   let orbit
-
+  if(window.matchMedia("(min-width:900px)").matches){
+ 
 document.addEventListener('mousemove',(e)=>{
   if(window.matchMedia("(min-width:1400px)").matches){
     let scale = -0.002
@@ -145,8 +146,14 @@ let cameraDistance = 70;
 camera.position.z = cameraDistance;
 orbit.add( camera );
 }else{
-  let cameraDistance = 110;
-  camera.position.z = cameraDistance;
+  let cameraDistanceMobile = 110;
+  camera.position.z = cameraDistanceMobile;  
+orbit = new THREE.Object3D();
+orbit.rotation.order = "YXZ"; 
+orbit.rotation.x = 1;
+orbit.position.copy( sphere.position );
+scene.add(orbit);
+orbit.add( camera );
 }
 function fadeAwayTitre(){
   sect1.removeChild(titre)
@@ -176,11 +183,18 @@ portfolio.addEventListener('click',()=>{
   gsap.to(camera.position,{duration:5,y:-500})
   titre.style.transform='translateY(-100vh)'
   setTimeout(fadeAwayTitre,1000)
-  grid.style.display='grid'
+  if(window.matchMedia("(max-width:600px)").matches){
+    grid.style.display='flex'
+  }else{
+    grid.style.display='grid'
+  }
   sect1.removeChild(header)
   sect1.removeChild(cadre)
+  
   if(booleanEffect==false){
+    if(window.matchMedia("(min-width:500px)").matches){
     setTimeout(hover,500)
+    }
   }
   setTimeout(transitionGrid,500)
   console.log( booleanEffect)
@@ -195,6 +209,7 @@ retourPortfolio.addEventListener("click",()=>{
   sect1.appendChild(header)
   sect1.appendChild(cadre)
 })
+
 technologie.addEventListener('click',()=>{
   gsap.to(camera.position,{duration:5,x:-500})
   pageTechno.style.display="flex"
@@ -238,7 +253,7 @@ function animate(){
   composer.render();
   requestAnimationFrame(animate) 
   if(window.matchMedia("(max-width:900px)").matches){
-    camera.rotation.z+=0.01
+    camera.rotation.z+=0.005
   }
 }
 
@@ -255,10 +270,10 @@ window.addEventListener('resize',()=>{
 
 
 })
-
 /*hover effect*/
 
 let booleanEffect=false
+
 function hover(){
   booleanEffect=true
 new hoverEffect(
@@ -270,7 +285,6 @@ new hoverEffect(
     displacementImage:'./heightMap.png',
     imagesRatio:0.55,
   },
-
 )
 
 new hoverEffect(
@@ -336,8 +350,8 @@ new hoverEffect(
           imagesRatio:0.5,
         }
       )
-
 }
+
 //resize camera
 
 //retourScroll
