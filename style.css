@@ -169,7 +169,7 @@ header p:nth-child(1):hover{
         display: none;
         position: absolute;
         width: 85vw;
-        min-height: 100vh;
+        min-height: auto;
         grid-template-columns:1fr 1fr 1fr;
         transform: translateY(100vh);
         transition: ease-in-out 1.2s;
@@ -224,7 +224,7 @@ header p:nth-child(1):hover{
 
   /*grid*/
 .technologie{
-  min-height: 70vh;
+  min-height: auto;
   width: 100%;
   position: absolute;
   max-height: 100%;
@@ -357,7 +357,7 @@ border-radius: 5px;
 }
 .button-contact-form{
 height: 80px;
-width: 70%;
+width: 80%;
 background-color: #2980b9;
 margin: 1rem;
 border-radius: 5px;
@@ -398,11 +398,15 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 border: 1px solid white;
+transition: ease-in-out 0.5s;
+
 }
 .retourContact:hover{
   cursor: pointer;
 }
-
+.retourContact:hover{
+  border-radius: 15px;
+}
 @media (max-width:1440px) {
   .retour{
     right: 0;
@@ -481,6 +485,9 @@ border: 1px solid white;
 @media (max-width:481px) {
   .mobile-responsive{
     display: flex;
+  }
+  .button-contact-form{
+    width: 95%;
   }
   .portfolioGrid a{
     background-position: center;

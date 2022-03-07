@@ -60,10 +60,10 @@ let fxaaPass
 
 stats = new Stats();
 container.appendChild( stats.dom );
-let exposureRatio=0.5
-let bloomStrengthRatio=0.3
-let bloomThresholdRatio=0
-let bloomRadiusRatio=0.5
+let exposureRatio
+let bloomStrengthRatio
+let bloomThresholdRatio
+let bloomRadiusRatio
 
 if(window.matchMedia('(max-width:500px)').matches){
    exposureRatio=0.3
@@ -162,7 +162,7 @@ let cameraDistance = 70;
 camera.position.z = cameraDistance;
 orbit.add( camera );
 }else{
-  let cameraDistanceMobile = 110;
+  let cameraDistanceMobile = 90;
   camera.position.z = cameraDistanceMobile;  
 orbit = new THREE.Object3D();
 orbit.rotation.order = "YXZ"; 
@@ -195,6 +195,10 @@ function transitionTechno(){
 function fadeAwayContact(){
   contactSection.style.display='none'
 }
+function removeCadreAndHeader(){
+  sect1.appendChild(header)
+  sect1.appendChild(cadre)
+}
 portfolio.addEventListener('click',()=>{
   gsap.to(camera.position,{duration:5,y:-500})
   titre.style.transform='translateY(-100vh)'
@@ -222,8 +226,7 @@ retourPortfolio.addEventListener("click",()=>{
   setTimeout(returnTitre,1000)
   grid.style.transform='translateY(100vh)';
   setTimeout(fadeAwayGrid,1000)
-  sect1.appendChild(header)
-  sect1.appendChild(cadre)
+  setTimeout(removeCadreAndHeader,1000)
 })
 
 technologie.addEventListener('click',()=>{
@@ -242,8 +245,7 @@ retourTechno.addEventListener('click',()=>{
   setTimeout(returnTitre,1000)
   pageTechno.style.transform='translateX(-100vw)';
   setTimeout(fadeAwayTechno,1000)
-  sect1.appendChild(header)
-  sect1.appendChild(cadre)
+  setTimeout(removeCadreAndHeader,1000)
 })
 contactButton.addEventListener('click',()=>{
   titre.style.transform='translateY(-100vh)'
@@ -258,8 +260,7 @@ retourContact.addEventListener('click',()=>{
   setTimeout(returnTitre,1000)
   contactSection.style.transform='translateY(-100vh)';
   setTimeout(fadeAwayContact,1000)
-  sect1.appendChild(header)
-  sect1.appendChild(cadre)
+  setTimeout(removeCadreAndHeader,1000)
 })
 
 function animate(){
