@@ -276,18 +276,11 @@ function animate(){
 
 animate()
 
-window.addEventListener('resize',()=>{
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  const pixelRatio = renderer.getPixelRatio();
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  fxaaPass.material.uniforms[ 'resolution' ].value.x = 1 / ( container.offsetWidth * pixelRatio );
-  fxaaPass.material.uniforms[ 'resolution' ].value.y = 1 / ( container.offsetHeight * pixelRatio );
-})
 
 
 })
 /*hover effect*/
+
 
 let booleanEffect=false
 
@@ -300,7 +293,7 @@ new hoverEffect(
     image1:'./metis.jpg',
     image2:'./metis2.jpg',
     displacementImage:'./heightMap.png',
-    imagesRatio:0.55,
+    imagesRatio:0.5,
   },
 )
 
@@ -368,6 +361,15 @@ new hoverEffect(
         }
       )
 }
+
+window.addEventListener('resize',()=>{
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  const pixelRatio = renderer.getPixelRatio();
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  fxaaPass.material.uniforms[ 'resolution' ].value.x = 1 / ( container.offsetWidth * pixelRatio );
+  fxaaPass.material.uniforms[ 'resolution' ].value.y = 1 / ( container.offsetHeight * pixelRatio );
+})
 
 //resize camera
 

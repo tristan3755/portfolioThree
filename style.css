@@ -206,10 +206,13 @@ header p:nth-child(1):hover{
       }
       .portfolioGrid a{
         position: relative;
+        border: 1px solid white;
       }
       .portfolioGrid a canvas{
         position: absolute;
-        border: 1px solid white;
+        height: 100% !important;
+        width: 100%!important;
+        object-fit: cover;
       }
       .portfolioGrid a:hover{
         cursor: pointer;
