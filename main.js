@@ -273,11 +273,7 @@ function animate(){
     camera.rotation.z+=0.005
   }
 }
-
 animate()
-
-
-
 })
 /*hover effect*/
 
@@ -286,6 +282,7 @@ let booleanEffect=false
 
 function hover(){
   booleanEffect=true
+ 
 new hoverEffect(
   {
     parent:document.querySelector('.image'),
@@ -293,7 +290,7 @@ new hoverEffect(
     image1:'./metis.jpg',
     image2:'./metis2.jpg',
     displacementImage:'./heightMap.png',
-    imagesRatio:0.5,
+    imagesRatio:0.55,
   },
 )
 
